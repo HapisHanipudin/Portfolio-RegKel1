@@ -1,0 +1,109 @@
+* {
+  font-family: "Plus Jakarta Sans";
+}
+
+.font-jakarta {
+  font-family: "Plus Jakarta Sans";
+}
+
+.font-bebas {
+  font-family: "Bebas Neue";
+}
+
+.jumbotron {
+  padding-top: 2rem;
+  background-color: #e4e4e4;
+}
+
+#nav-bot {
+  display: none;
+}
+
+#projectss {
+  padding-top: 2rem;
+}
+
+.nav.nav-pills .nav-item .nav-link.active {
+  color: #e4e4e4;
+  background-color: #212529;
+}
+
+.nav.nav-pills .nav-item .nav-link {
+  color: #212529;
+}
+
+.background_shape {
+  position: absolute;
+  width: 70%;
+  top: 0px;
+  left: 0px;
+  height: calc(50vh + 0px);
+  background-color: #c2c1c1;
+  clip-path: polygon(100% 0%, 81% 86%, 0% 100%, 0% 0%);
+}
+
+.background_shape.opened {
+  height: calc(70vh + 65px);
+}
+
+.footer-sub-menu li a i {
+  margin-right: 5px;
+}
+
+.footer .footer-sub-menu li .footer-link {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.circle-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  cursor: none;
+}
+
+#circle-cursor {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(54, 54, 54);
+  opacity: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transition: width 0.1s, height 0.1s, left 0.1s, top 0.1s;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+  box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+}
+
+#circle-cursor-ring {
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: 0;
+  border-width: 10px;
+  border-color: rgb(56, 56, 56);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+  box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+}
+
+.cursor-hover-element {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
