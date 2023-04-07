@@ -56,54 +56,75 @@
   text-decoration: none;
 }
 
-.circle-cursor-container {
+/* Tabs */
+
+/* Magic Cursor */
+
+.cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  cursor: none;
-}
-
-#circle-cursor {
-  display: block;
   width: 10px;
   height: 10px;
-  background-color: rgb(54, 54, 54);
-  opacity: 50%;
   border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  transition: width 0.1s, height 0.1s, left 0.1s, top 0.1s;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
-  box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+  background-color: #797979;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  mix-blend-mode: difference;
 }
 
-#circle-cursor-ring {
-  display: block;
-  width: 20px;
-  height: 20px;
-  color: 0;
-  border-width: 10px;
-  border-color: rgb(56, 56, 56);
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
-  box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 1);
+button:hover {
+  /* Tambahkan gaya hover sesuai keinginan Anda */
+  background-color: #999999;
 }
 
-.cursor-hover-element {
-  display: inline-block;
+a:hover {
+  background-color: ;
+}
+
+.cursor.active {
+  /* Tambahkan gaya yang akan diterapkan pada cursor saat mouse memasuki elemen yang dapat dihover */
+  transform: translate(-50%, -50%) scale(2.5);
+  opacity: 0.5;
+}
+
+a,
+button {
+  /* Tambahkan gaya yang akan diterapkan pada elemen yang dapat dihover */
   position: relative;
-  z-index: 2;
+  z-index: 1;
+}
+
+a::before,
+button::before {
+  /* Tambahkan gaya yang akan diterapkan pada efek hover pada elemen yang dapat dihover */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #e4e4e4;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+a::before {
+  background-color: #797979;
+}
+
+.nav.nav-pills .nav-item .nav-link.active::before {
+  background-color: #5f5f5f;
+}
+
+a:hover::before,
+button:hover::before {
+  /* Tambahkan gaya yang akan diterapkan pada efek hover pada elemen yang dapat dihover */
+  width: 100%;
+  height: 100%;
 }
