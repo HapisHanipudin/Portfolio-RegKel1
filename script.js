@@ -13,3 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 // DOMContentLoaded  end
+
+// Loading
+
+// Ambil elemen loading screen
+const loadingScreen = document.querySelector(".loading-screen");
+
+// Tampilkan loading screen
+loadingScreen.style.display = "flex";
+
+// Sembunyikan loading screen setelah 3 detik
+setTimeout(function () {
+  loadingScreen.style.display = "none";
+}, 3000);
