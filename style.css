@@ -60,73 +60,56 @@
 
 /* Magic Cursor */
 
-.cursor {
+.mouse-cursor {
   position: fixed;
-  top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #797979;
-  transform: translate(-50%, -50%);
+  top: 0;
   pointer-events: none;
-  z-index: 9999;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  mix-blend-mode: difference;
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  visibility: hidden;
 }
-
-button:hover {
-  /* Tambahkan gaya hover sesuai keinginan Anda */
-  background-color: #999999;
+.cursor-inner {
+  margin-left: -3px;
+  margin-top: -3px;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+  background-color: #4e4e4e;
+  -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-
-a:hover {
-  background-color: ;
+.cursor-inner.cursor-hover {
+  margin-left: -40px;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  background-color: #686868;
+  opacity: 0.3;
 }
-
-.cursor.active {
-  /* Tambahkan gaya yang akan diterapkan pada cursor saat mouse memasuki elemen yang dapat dihover */
-  transform: translate(-50%, -50%) scale(2.5);
+.cursor-outer {
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #575757;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 100;
   opacity: 0.5;
+  -webkit-transition: all 0.08s ease-out;
+  transition: all 0.08s ease-out;
 }
-
-a,
-button {
-  /* Tambahkan gaya yang akan diterapkan pada elemen yang dapat dihover */
-  position: relative;
-  z-index: 1;
+.cursor-outer.cursor-hover {
+  opacity: 0;
 }
-
-a::before,
-button::before {
-  /* Tambahkan gaya yang akan diterapkan pada efek hover pada elemen yang dapat dihover */
-  content: "";
+body[data-magic-cursor="hide"] .mouse-cursor {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background-color: #e4e4e4;
-  border-radius: 5px;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  transition: width 0.2s ease, height 0.2s ease;
-}
-
-a::before {
-  background-color: #797979;
-}
-
-.nav.nav-pills .nav-item .nav-link.active::before {
-  background-color: #5f5f5f;
-}
-
-a:hover::before,
-button:hover::before {
-  /* Tambahkan gaya yang akan diterapkan pada efek hover pada elemen yang dapat dihover */
-  width: 100%;
-  height: 100%;
+  z-index: -1111;
 }
 
 /* Loading Screen */
@@ -138,7 +121,7 @@ button:hover::before {
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Loading
 
-// Ambil elemen loading screen
-const loadingScreen = document.querySelector(".loading-screen");
+var myVar;
 
-// Tampilkan loading screen
-loadingScreen.style.display = "flex";
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
 
-// Sembunyikan loading screen setelah 3 detik
-setTimeout(function () {
-  loadingScreen.style.display = "none";
-}, 3000);
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
