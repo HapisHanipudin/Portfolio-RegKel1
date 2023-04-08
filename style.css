@@ -114,19 +114,6 @@ body[data-magic-cursor="hide"] .mouse-cursor {
 
 /* Loading Screen */
 
-/* Set margin and padding to 0 for the whole page */
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Set the height of the page to 100% */
-html,
-body {
-  height: 100%;
-}
-
 /* Create a preloader container */
 .preloader {
   position: fixed;
