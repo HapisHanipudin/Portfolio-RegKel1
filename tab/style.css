@@ -23,6 +23,15 @@
   padding-top: 2rem;
 }
 
+.nav.nav-pills .nav-item .nav-link.active {
+  color: #e4e4e4;
+  background-color: #212529;
+}
+
+.nav.nav-pills .nav-item .nav-link {
+  color: #212529;
+}
+
 .background_shape {
   position: absolute;
   width: 70%;
@@ -49,7 +58,7 @@
 
 /* Tabs */
 
-.nav-tabs ul li {
+.nav-tabs ul li .nav-link {
   margin: 0px 6px 6px 0px;
   float: left;
   background-color: #999898;
@@ -67,7 +76,7 @@
   transition: all 0.3s ease;
 }
 
-.nav-tabs ul li .svg {
+.nav-tabs ul li .nav-link .svg {
   width: 40px;
   height: 40px;
   color: #212529;
@@ -79,7 +88,7 @@
   transition: all 0.3s ease;
 }
 
-.nav-tabs ul li span {
+.nav-tabs ul li .nav-link span {
   font-size: 22px;
 
   color: #222222;
@@ -97,19 +106,19 @@
   transition: all 0.3s ease;
 }
 
-.nav-tabs ul li .entered span,
-.nav-tabs ul li .active span {
+.nav-tabs ul li .nav-link.entered span,
+.nav-tabs ul li .nav-link.active span {
   left: 95px;
 }
 
-.nav-tabs ul li .active svg {
+.nav-tabs ul li .nav-link.active svg {
   color: #fff;
 }
 
-.nav-tabs ul li .active span {
+.nav-tabs ul li .nav-link.active span {
   color: #fff;
 }
-.nav-tabs ul li .active {
+.nav-tabs ul li .nav-link.active {
   background-color: #212529 !important;
 }
 

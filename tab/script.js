@@ -23,31 +23,31 @@ window.onload = function () {
 function menu_width() {
   "use strict";
 
-  var ww = window.width();
+  var ww = jQuery(window).width();
   var btn = jQuery(".nav-tabs ul li a");
 
   btn
     .on("mouseenter", function () {
       var element = jQuery(this);
-      var li = element.closest("li");
-      if (li.hasClass("active") || li.hasClass("entered")) {
+      var a = element.closest("a");
+      if (a.hasClass("active") || a.hasClass("entered")) {
         return false;
       }
-      li.closest("ul").children().removeClass("entered");
-      li.addClass("entered");
-      var elWidth = li.outerWidth();
-      var textWidth = li.find("span").outerWidth();
-      li.css({ width: elWidth + textWidth + "px" });
+      a.closest("li").children().removeClass("entered");
+      a.addClass("entered");
+      var elWidth = a.outerWidth();
+      var textWidth = a.find("span").outerWidth();
+      a.css({ width: elWidth + textWidth + "px" });
     })
     .on("mouseleave", function () {
       var element = jQuery(this);
-      var li = element.closest("li");
-      var allLi = li.closest("ul").children();
-      var fixedLi = li.closest("ul").children(".fixed");
-      var activeLi = li.closest("ul").children(".active");
-      allLi.removeClass("entered").css({ width: "135px" });
+      var a = element.closest("a");
+      var allA = a.closest("li").children();
+      var fixedA = a.closest("li").children(".fixed");
+      var activeA = a.closest("li").children(".active");
+      allA.removeClass("entered").css({ width: "135px" });
       if (ww <= 1400) {
-        allLi.removeClass("entered").css({ width: "95px" });
+        allA.removeClass("entered").css({ width: "95px" });
       }
 
       if (activeLi.length) {
@@ -55,7 +55,7 @@ function menu_width() {
         if (ww <= 1400) {
           elWidth = 95;
         }
-        var textWidth = activeLi.find("span").outerWidth();
+        var textWidth = activeA.find("span").outerWidth();
         activeLi
           .removeClass("fixed")
           .addClass("active")
@@ -65,12 +65,12 @@ function menu_width() {
 
   btn.on("click", function () {
     var element = jQuery(this);
-    var li = element.closest("li");
+    var a = element.closest("a");
     var href = element.attr("href");
-    if (li.hasClass("active") && !li.hasClass("entered")) {
+    if (a.hasClass("active") && !a.hasClass("entered")) {
       return false;
     }
-    li.addClass("active fixed");
+    a.addClass("active fixed");
     var mainMenu = element.closest("nav-tabs");
 
     if (ww <= 1040) {
@@ -89,25 +89,25 @@ function menu_width() {
       );
     }
 
-    li.siblings().removeClass("active").css({ width: "135px" });
+    a.siblings().removeClass("active").css({ width: "135px" });
     if (ww <= 1400) {
-      li.siblings().removeClass("active").css({ width: "95px" });
+      a.siblings().removeClass("active").css({ width: "95px" });
     }
-    $(".tab-pane.show").removeClass("show");
+    $(".tab-pane.active").removeClass("active");
     jQuery(".tab-content").addClass("opened");
     $(href).addClass("active");
 
-    if (!li.hasClass("entered")) {
-      var elWidth = li.outerWidth();
-      var textWidth = li.find("span").outerWidth();
-      li.css({ width: elWidth + textWidth + "px" });
+    if (!a.hasClass("entered")) {
+      var elWidth = a.outerWidth();
+      var textWidth = a.find("span").outerWidth();
+      a.css({ width: elWidth + textWidth + "px" });
     }
     iknow_tm_owl_carousel();
 
     return false;
   });
 
-  jQuery(".nav-tabs ul li. .nav-link.active").each(function () {
+  jQuery(".nav-tabs ul li .nav-link.active").each(function () {
     var element = jQuery(this);
     var elWidth = element.outerWidth();
     var textWidth = element.find("span").outerWidth();
