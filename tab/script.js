@@ -50,13 +50,13 @@ function menu_width() {
         allA.removeClass("entered").css({ width: "95px" });
       }
 
-      if (activeLi.length) {
+      if (activeA.length) {
         var elWidth = 135;
         if (ww <= 1400) {
           elWidth = 95;
         }
         var textWidth = activeA.find("span").outerWidth();
-        activeLi
+        activeA
           .removeClass("fixed")
           .addClass("active")
           .css({ width: elWidth + textWidth + "px" });
@@ -74,14 +74,14 @@ function menu_width() {
     var mainMenu = element.closest("nav-tabs");
 
     if (ww <= 1040) {
-      $("html, body").animate(
+      jQuery("html, body").animate(
         {
-          scrollTop: $(".tab-content").offset().top - 30,
+          scrollTop: jQuery(".tab-content").offset().top - 30,
         },
         1000
       );
     } else {
-      $("html, body").animate(
+      jQuery("html, body").animate(
         {
           scrollTop: mainMenu.offset().top - 30,
         },
@@ -93,9 +93,9 @@ function menu_width() {
     if (ww <= 1400) {
       a.siblings().removeClass("active").css({ width: "95px" });
     }
-    $(".tab-pane.active").removeClass("active");
-    jQuery(".tab-content").addClass("opened");
-    $(href).addClass("active");
+    jQuery(".tab-pane.active").removeClass("active");
+    jQuery(".tab-content").addClass("active");
+    jQuery(href).addClass("active");
 
     if (!a.hasClass("entered")) {
       var elWidth = a.outerWidth();
@@ -113,6 +113,6 @@ function menu_width() {
     var textWidth = element.find("span").outerWidth();
     var href = element.find("a").attr("href");
     element.css({ width: elWidth + textWidth + "px" });
-    $(href).addClass("active");
+    jQuery(href).addClass("active");
   });
 }
