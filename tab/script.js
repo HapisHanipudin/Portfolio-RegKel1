@@ -52,6 +52,10 @@ function iknow_tm_news_popup() {
   });
 }
 
+// Function
+
+$(document).ready();
+
 // -----------------------------------------------------
 // ---------------   MENU WIDTH   ----------------------
 // -----------------------------------------------------
@@ -60,10 +64,10 @@ function menu_width() {
   "use strict";
 
   var ww = jQuery(window).width();
-  var btn = jQuery(".nav-tabs ul li a");
+  var btn = jQuery(".nav-tab ul li a");
 
   btn
-    .on("mouseenter", function () {
+    .on("mouseover", function () {
       var element = jQuery(this);
       var a = element.closest("a");
       if (a.hasClass("active") || a.hasClass("entered")) {
@@ -73,17 +77,17 @@ function menu_width() {
       a.addClass("entered");
       var elWidth = a.outerWidth();
       var textWidth = a.find("span").outerWidth();
-      a.css({ width: elWidth + textWidth + "px" });
+      a.width(elWidth + textWidth);
     })
-    .on("mouseleave", function () {
+    .on("mouseout", function () {
       var element = jQuery(this);
       var a = element.closest("a");
       var allA = a.closest("li").children();
       var fixedA = a.closest("li").children(".fixed");
       var activeA = a.closest("li").children(".active");
-      allA.removeClass("entered").css({ width: "135px" });
+      allA.removeClass("entered").width(135);
       if (ww <= 1400) {
-        allA.removeClass("entered").css({ width: "95px" });
+        allA.removeClass("entered").width(95);
       }
 
       if (activeA.length) {
@@ -95,7 +99,7 @@ function menu_width() {
         activeA
           .removeClass("fixed")
           .addClass("active")
-          .css({ width: elWidth + textWidth + "px" });
+          .width(elWidth + textWidth);
       }
     });
 
@@ -107,38 +111,27 @@ function menu_width() {
       return false;
     }
     a.addClass("active fixed");
-    var mainMenu = element.closest("nav-tabs");
+    var mainMenu = $(".nav-tabs");
 
     if (ww <= 1040) {
-      jQuery("html, body").animate(
-        {
-          scrollTop: jQuery(".tab-content").offset().top - 30,
-        },
-        1000
-      );
+      $("html, body").scrollTop($(".tab-content").offset().top - 30);
     } else {
-      jQuery("html, body").animate(
-        {
-          scrollTop: mainMenu.offset().top - 30,
-        },
-        1000
-      );
+      $("html, body").scrollTop(mainMenu.offset().top - 30);
     }
 
-    a.siblings().removeClass("active").css({ width: "135px" });
+    a.siblings().removeClass("active").width(135);
     if (ww <= 1400) {
-      a.siblings().removeClass("active").css({ width: "95px" });
+      a.siblings().removeClass("active").width(95);
     }
-    jQuery(".tab-pane.active").removeClass("active");
-    jQuery(".tab-content").addClass("active");
-    jQuery(href).addClass("active");
+    $(".tab-pane.active").removeClass("active");
+    jQuery(".tab-content").addClass("opened");
+    $(href).addClass("active");
 
     if (!a.hasClass("entered")) {
       var elWidth = a.outerWidth();
       var textWidth = a.find("span").outerWidth();
-      a.css({ width: elWidth + textWidth + "px" });
+      a.width(elWidth + textWidth);
     }
-    iknow_tm_owl_carousel();
 
     return false;
   });
