@@ -20,6 +20,42 @@ window.onload = function () {
 
 // menu bar
 
+// -------------------------------------------------
+// ----------------  NEWS POPUP  -------------------
+// -------------------------------------------------
+
+function iknow_tm_news_popup() {
+  "use strict";
+
+  var modalBox = jQuery(".iknow_tm_modalbox");
+  var button = jQuery(".iknow_tm_news .iknow_tm_full_link,.iknow_tm_news .news_list ul li .details .title a, .nav-link");
+  var closePopup = modalBox.find(".close");
+
+  button.on("click", function () {
+    var element = jQuery(this);
+    var parent = element.closest(".list_inner");
+    var content = parent.find(".hidden_content").html();
+    var image = parent.find(".image .main").data("img-url");
+    var category = parent.find(".details .category a").text();
+    var title = parent.find(".details .title a").text();
+    modalBox.addClass("opened");
+    modalBox.find(".description_wrap").html(content);
+    modalBox.find(".news_informations").prepend('<div class="image"><img src="img/thumbs/4-2.jpg" alt="" /><div class="main" data-img-url="' + image + '"></div></div>');
+    modalBox.find(".news_informations .image").after('<div class="details"><span>' + category + "</span><h3>" + title + "</h3><div>");
+    iknow_tm_data_images();
+    return false;
+  });
+  closePopup.on("click", function () {
+    modalBox.removeClass("opened");
+    modalBox.find(".description_wrap").html("");
+    return false;
+  });
+}
+
+// -----------------------------------------------------
+// ---------------   MENU WIDTH   ----------------------
+// -----------------------------------------------------
+
 function menu_width() {
   "use strict";
 
