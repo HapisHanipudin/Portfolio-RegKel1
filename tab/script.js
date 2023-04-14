@@ -134,9 +134,7 @@ function menu_width() {
       li.siblings().removeClass("active").css({ width: "95px" });
     }
     $(".tab-panes.active").removeClass("active");
-    jQuery(".tab-contents").addClass("opened");
-    jQuery(".jumbotron").addClass("opened");
-    jQuery(".iknow_tm_copyright.hidden").addClass("visible");
+    $(".tab-content").addClass("opened");
     $(href).addClass("active");
 
     if (!li.hasClass("entered")) {
