@@ -91,7 +91,7 @@
 .nav-tabs ul li .nav-link span {
   font-size: 22px;
 
-  color: #222222;
+  color: #ffffff;
   font-weight: 700;
   left: 100%;
   top: 50%;
@@ -109,6 +109,9 @@
 .nav-tabs ul li .nav-link.entered span,
 .nav-tabs ul li .nav-link.active span {
   left: 95px;
+}
+
+.nav-tabs ul li .nav-link.fixed {
 }
 
 .nav-tabs ul li .nav-link.active svg {
