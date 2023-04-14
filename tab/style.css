@@ -23,12 +23,12 @@
   padding-top: 2rem;
 }
 
-.nav.nav-pills .nav-item .nav-link.active {
+.nav.nav-pills .nav-item .active {
   color: #e4e4e4;
   background-color: #212529;
 }
 
-.nav.nav-pills .nav-item .nav-link {
+.nav.nav-pills .nav-item {
   color: #212529;
 }
 
@@ -58,12 +58,25 @@
 
 /* Tabs */
 
-.nav-tabs ul li .nav-link {
+.nav-tabs {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+
+.nav-tabs ul {
+  margin: 0px;
+  list-style-type: none;
+  background-color: #5a5def;
+}
+
+.nav-tabs ul li {
   margin: 0px 6px 6px 0px;
   float: left;
-  background-color: #999898;
+  background-color: #979797;
   position: relative;
-  height: px;
+  height: 135px;
   width: 135px;
   padding: 48px;
   border-radius: 10px;
@@ -76,10 +89,10 @@
   transition: all 0.3s ease;
 }
 
-.nav-tabs ul li .nav-link .svg {
+.nav-tabs ul li .svg {
   width: 40px;
   height: 40px;
-  color: #212529;
+  color: #ffffff;
   display: block;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -88,9 +101,8 @@
   transition: all 0.3s ease;
 }
 
-.nav-tabs ul li .nav-link span {
+.nav-tabs ul li span {
   font-size: 22px;
-
   color: #ffffff;
   font-weight: 700;
   left: 100%;
@@ -106,22 +118,20 @@
   transition: all 0.3s ease;
 }
 
-.nav-tabs ul li .nav-link.entered span,
-.nav-tabs ul li .nav-link.active span {
+.nav-tabs ul li.entered span,
+.nav-tabs ul li.active span {
   left: 95px;
 }
 
-.nav-tabs ul li .nav-link.fixed {
-}
-
-.nav-tabs ul li .nav-link.active svg {
+.nav-tabs ul li.active svg {
   color: #fff;
 }
 
-.nav-tabs ul li .nav-link.active span {
+.nav-tabs ul li.active span {
   color: #fff;
 }
-.nav-tabs ul li .nav-link.active {
+
+.nav-tabs ul li.active {
   background-color: #212529 !important;
 }
 

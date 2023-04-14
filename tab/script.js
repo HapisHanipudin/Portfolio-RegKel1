@@ -60,93 +60,102 @@ function iknow_tm_news_popup() {
 
 // Function
 
-// -----------------------------------------------------
-// ---------------   MENU WIDTH   ----------------------
-// -----------------------------------------------------
-
 function menu_width() {
   "use strict";
 
-  var ww = $(window).width();
-  var btn = $(".nav-tabs ul li a");
+  var ww = jQuery(window).width();
+  var btn = jQuery(".nav-tabs ul li a");
 
   btn
-    .on("mouseover", function () {
+    .on("mouseenter", function () {
       var element = jQuery(this);
-      var a = element.closest("a");
-      if (a.hasClass("active") || a.hasClass("entered")) {
+      var li = element.closest("li");
+      if (li.hasClass("active") || li.hasClass("entered")) {
         return false;
       }
-      a.closest("li").children().removeClass("entered");
-      a.addClass("entered");
-      var elWidth = a.outerWidth();
-      var textWidth = a.find("span").outerWidth();
-      a.width(elWidth + textWidth);
+      li.closest("ul").children().removeClass("entered");
+      li.addClass("entered");
+      var elWidth = li.outerWidth();
+      var textWidth = li.find("span").outerWidth();
+      li.css({ width: elWidth + textWidth + "px" });
     })
-    .on("mouseout", function () {
+    .on("mouseleave", function () {
       var element = jQuery(this);
-      var a = element.closest("a");
-      var allA = a.closest("li").children();
-      var fixedA = a.closest("li").children(".fixed");
-      var activeA = a.closest("li").children(".active");
-      allA.removeClass("entered").width(135);
+      var li = element.closest("li");
+      var allLi = li.closest("ul").children();
+      var fixedLi = li.closest("ul").children(".fixed");
+      var activeLi = li.closest("ul").children(".active");
+      allLi.removeClass("entered").css({ width: "135px" });
       if (ww <= 1400) {
-        allA.removeClass("entered").width(95);
+        allLi.removeClass("entered").css({ width: "95px" });
       }
 
-      if (activeA.length) {
+      if (activeLi.length) {
         var elWidth = 135;
         if (ww <= 1400) {
           elWidth = 95;
         }
-        var textWidth = activeA.find("span").outerWidth();
-        activeA
+        var textWidth = activeLi.find("span").outerWidth();
+        activeLi
           .removeClass("fixed")
           .addClass("active")
-          .width(elWidth + textWidth);
+          .css({ width: elWidth + textWidth + "px" });
       }
     });
 
   btn.on("click", function () {
     var element = jQuery(this);
-    var a = element.closest("a");
+    var li = element.closest("li");
     var href = element.attr("href");
-    if (a.hasClass("active") && !a.hasClass("entered")) {
+    if (li.hasClass("active") && !li.hasClass("entered")) {
       return false;
     }
-    a.addClass("active fixed");
-    var mainMenu = $(".nav-tabs");
+    li.addClass("active fixed");
+    var mainMenu = element.closest(".nav-tabs");
 
     if (ww <= 1040) {
-      $("html, body").scrollTop($(".tab-content").offset().top - 30);
+      $("html, body").animate(
+        {
+          scrollTop: $("..tab-contents").offset().top - 30,
+        },
+        1000
+      );
     } else {
-      $("html, body").scrollTop(mainMenu.offset().top - 30);
+      $("html, body").animate(
+        {
+          scrollTop: mainMenu.offset().top - 30,
+        },
+        1000
+      );
     }
 
-    a.siblings().removeClass("active").width(135);
+    li.siblings().removeClass("active").css({ width: "135px" });
     if (ww <= 1400) {
-      a.siblings().removeClass("active").width(95);
+      li.siblings().removeClass("active").css({ width: "95px" });
     }
-    $(".tab-pane.active").removeClass("active");
-    jQuery(".tab-content").addClass("opened");
+    $(".tab-panes.active").removeClass("active");
+    jQuery(".tab-contents").addClass("opened");
+    jQuery(".jumbotron").addClass("opened");
+    jQuery(".iknow_tm_copyright.hidden").addClass("visible");
     $(href).addClass("active");
 
-    if (!a.hasClass("entered")) {
-      var elWidth = a.outerWidth();
-      var textWidth = a.find("span").outerWidth();
-      a.width(elWidth + textWidth);
+    if (!li.hasClass("entered")) {
+      var elWidth = li.outerWidth();
+      var textWidth = li.find("span").outerWidth();
+      li.css({ width: elWidth + textWidth + "px" });
     }
+    iknow_tm_owl_carousel();
 
     return false;
   });
 
-  jQuery(".nav-tabs ul li .nav-link.active").each(function () {
+  jQuery(".iknow_tm_hero .main_menu ul li.active").each(function () {
     var element = jQuery(this);
     var elWidth = element.outerWidth();
     var textWidth = element.find("span").outerWidth();
     var href = element.find("a").attr("href");
     element.css({ width: elWidth + textWidth + "px" });
-    jQuery(href).addClass("active");
+    $(href).addClass("active");
   });
 }
 
