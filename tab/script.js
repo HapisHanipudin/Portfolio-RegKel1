@@ -34,7 +34,7 @@ function iknow_tm_news_popup() {
   "use strict";
 
   var modalBox = jQuery(".iknow_tm_modalbox");
-  var button = jQuery(".iknow_tm_news .iknow_tm_full_link,.iknow_tm_news .news_list ul li .details .title a, .nav-link");
+  var button = jQuery(".iknow_tm_news .nav-links,.iknow_tm_news .news_list ul li .details .title a, .nav-link");
   var closePopup = modalBox.find(".close");
 
   button.on("click", function () {

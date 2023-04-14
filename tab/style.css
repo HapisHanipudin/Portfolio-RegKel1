@@ -135,6 +135,15 @@
   background-color: #212529 !important;
 }
 
+.nav-links {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 5;
+}
+
 /* Magic Cursor */
 
 .mouse-cursor {
